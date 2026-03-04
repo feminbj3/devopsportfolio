@@ -39,7 +39,6 @@
 </div>
 
 <main class="container contact-main">
-
   <div class="contact-grid">
 
     <!-- LEFT: Info -->
@@ -88,11 +87,11 @@
       </div>
     </div>
 
-    <!-- RIGHT: Netlify Form -->
+    <!-- RIGHT: Form -->
     <div class="contact-form-wrap" data-animate>
       <h2>Send a <span class="accent">Message</span></h2>
 
-      <!-- SUCCESS STATE (hidden by default) -->
+      <!-- SUCCESS STATE — shown after submit -->
       <div class="form-success" id="formSuccess" style="display:none;">
         <div class="success-icon">✅</div>
         <h3>Message Sent!</h3>
@@ -101,28 +100,27 @@
       </div>
 
       <!--
-        NETLIFY FORMS:
-        - The `data-netlify="true"` attribute tells Netlify to capture this form automatically.
-        - The `name="contact"` attribute is used to identify submissions in your Netlify dashboard.
-        - The hidden `form-name` input is REQUIRED for Netlify to detect the form correctly.
-        - You can view all submissions at: Netlify Dashboard → Your Site → Forms → "contact"
-        - Optionally set up email notifications: Forms → contact → Form notifications → Add notification
+        HOW NETLIFY FORMS WORKS:
+        ─────────────────────────────────────────────────────────
+        1. `name="contact"`         → form name shown in Netlify dashboard
+        2. `data-netlify="true"`    → Netlify scans for this on deploy and registers the form
+        3. `netlify-honeypot`       → hidden spam trap field
+        4. hidden `form-name` input → required so the AJAX POST knows which form to submit to
+        5. The JS below submits via fetch() as URL-encoded POST to "/" — this is the correct
+           Netlify Forms endpoint. No external service needed.
+        ─────────────────────────────────────────────────────────
+        NOTE: This form will NOT work on localhost — it only works once deployed to Netlify.
+        On localhost it will show the success screen after a simulated delay (for preview).
       -->
       <form
         id="contactForm"
         name="contact"
-        method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
         class="contact-form"
       >
-        <!-- Required hidden input for Netlify -->
         <input type="hidden" name="form-name" value="contact" />
-
-        <!-- Honeypot spam filter — keep hidden -->
-        <p style="display:none;">
-          <label>Don't fill this out: <input name="bot-field" /></label>
-        </p>
+        <p style="display:none;"><label>Don't fill this: <input name="bot-field" /></label></p>
 
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -147,65 +145,95 @@
         </button>
 
         <p class="form-note">
-          📬 Submissions go directly to my inbox via Netlify Forms — no email client needed.
+          📬 Message goes directly to my inbox — no email client will open.
         </p>
       </form>
     </div>
 
   </div>
-
 </main>
 
 <script src="scripts/main.js"></script>
 <script>
-  const form = document.getElementById('contactForm');
-  const successBox = document.getElementById('formSuccess');
-  const btnText = document.getElementById('btnText');
-  const btnLoading = document.getElementById('btnLoading');
-  const submitBtn = document.getElementById('submitBtn');
+  const form        = document.getElementById('contactForm');
+  const successBox  = document.getElementById('formSuccess');
+  const btnText     = document.getElementById('btnText');
+  const btnLoading  = document.getElementById('btnLoading');
+  const submitBtn   = document.getElementById('submitBtn');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+  // Detect if running on Netlify (deployed) or locally
+  const isNetlify = window.location.hostname !== 'localhost' &&
+                    window.location.hostname !== '127.0.0.1' &&
+                    window.location.hostname !== '';
 
-    // Show loading state
-    btnText.style.display = 'none';
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // Always prevent default — we handle it ourselves
+
+    // Basic validation
+    const name    = form.querySelector('[name="name"]').value.trim();
+    const email   = form.querySelector('[name="email"]').value.trim();
+    const subject = form.querySelector('[name="subject"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+    if (!name || !email || !subject || !message) return;
+
+    // Show loading
+    btnText.style.display    = 'none';
     btnLoading.style.display = 'inline';
-    submitBtn.disabled = true;
+    submitBtn.disabled       = true;
 
-    const formData = new FormData(form);
+    if (isNetlify) {
+      // ── PRODUCTION: submit to Netlify Forms ──
+      try {
+        const body = new URLSearchParams({
+          'form-name': 'contact',
+          name,
+          email,
+          subject,
+          message,
+        }).toString();
 
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      });
+        const res = await fetch('/', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
 
-      if (response.ok) {
-        form.style.display = 'none';
-        successBox.style.display = 'flex';
-      } else {
-        throw new Error('Form submission failed');
+        if (res.ok) {
+          showSuccess();
+        } else {
+          throw new Error('Netlify rejected the submission');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong. Please email me directly at feminbj3@gmail.com');
+      } finally {
+        btnText.style.display    = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled       = false;
       }
-    } catch (err) {
-      // Fallback: open email client
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const subject = formData.get('subject');
-      const message = formData.get('message');
-      window.location.href = `mailto:feminbj3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-    } finally {
-      btnText.style.display = 'inline';
-      btnLoading.style.display = 'none';
-      submitBtn.disabled = false;
+    } else {
+      // ── LOCAL PREVIEW: simulate success after short delay ──
+      setTimeout(() => {
+        btnText.style.display    = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled       = false;
+        showSuccess();
+      }, 1200);
     }
   });
 
+  function showSuccess() {
+    form.style.display       = 'none';
+    successBox.style.display = 'flex';
+  }
+
   function resetForm() {
     form.reset();
-    form.style.display = 'flex';
+    form.style.display       = 'flex';
+    form.style.flexDirection = 'column';
     successBox.style.display = 'none';
   }
 </script>
+
 </body>
 </html>
