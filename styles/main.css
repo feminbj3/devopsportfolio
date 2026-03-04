@@ -1124,3 +1124,60 @@ a.other-cert-card:hover .oc-verify { color: var(--neon-blue); }
   .project-right { display: none; }
   .exp-card.tcs-child { margin-left: 0; border-left: none; border-top: 3px solid rgba(0,212,255,0.3); }
 }
+
+/* ── NETLIFY FORM SUCCESS STATE ── */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(57,255,20,0.06), rgba(0,212,255,0.04));
+  border: 1px solid rgba(57,255,20,0.3);
+  border-radius: 16px;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  min-height: 420px;
+  width: 100%;
+  animation: successFadeIn 0.5s ease both;
+}
+.success-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  animation: successBounce 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both 0.1s;
+}
+.success-pulse {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(57,255,20,0.1);
+  border: 2px solid rgba(57,255,20,0.3);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 30px rgba(57,255,20,0.2);
+  animation: pulse 2s infinite;
+}
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--neon-green);
+  letter-spacing: -0.02em;
+}
+.form-success p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 280px;
+}
+.form-success .btn-secondary {
+  margin-top: 0.5rem;
+}
+@keyframes successFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes successBounce {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.15); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
