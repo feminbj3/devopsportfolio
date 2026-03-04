@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Femin B J</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-logo"><span class="logo-bracket">&lt;</span>FeminBJ<span class="logo-bracket">/&gt;</span></div>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="skills.html" class="nav-link">Skills</a></li>
+    <li><a href="experience.html" class="nav-link">Experience</a></li>
+    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+    <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+    <li><a href="resume/Femin_BJ_Resume.pdf" download class="nav-cta">Download CV</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <span class="page-tag">03.5 / projects</span>
+    <h1>My <span class="accent">Projects</span></h1>
+    <p>Building real pipelines, deploying real infrastructure, shipping real code.</p>
+  </div>
+</div>
+
+<main class="container projects-main">
+
+  <!-- Project 1: AWS CI/CD Pipeline -->
+  <div class="project-card featured-project" data-animate>
+    <div class="project-card-top">
+      <div class="project-num">01</div>
+      <div class="project-badges">
+        <span class="proj-badge devops">DevOps</span>
+        <span class="proj-badge aws">AWS</span>
+        <span class="proj-badge cicd">CI/CD</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="project-left">
+        <h2 class="project-title">AWS CI/CD Pipeline for Node.js Application</h2>
+        <p class="project-subtitle">using CodeBuild and ECR</p>
+        <p class="project-desc">
+          Designed and implemented a fully automated CI/CD pipeline for a Node.js application using AWS-native services. The pipeline is triggered by Git webhook events, automatically builds Docker images, pushes them to Amazon ECR, and deploys the application — zero manual intervention required.
+        </p>
+
+        <div class="project-highlights">
+          <div class="ph-item"><span class="ph-icon">⚡</span> Webhook-triggered automated builds on every code push</div>
+          <div class="ph-item"><span class="ph-icon">🐳</span> Docker images built via buildspec.yml and pushed to ECR</div>
+          <div class="ph-item"><span class="ph-icon">🔄</span> End-to-end CI/CD: push → build → containerize → deploy</div>
+          <div class="ph-item"><span class="ph-icon">☁️</span> Fully serverless build infrastructure via AWS CodeBuild</div>
+        </div>
+
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-pills">
+            <span class="tech-pill aws-pill">AWS CodeBuild</span>
+            <span class="tech-pill aws-pill">Amazon ECR</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">Git Webhooks</span>
+            <span class="tech-pill">buildspec.yml</span>
+            <span class="tech-pill">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-right">
+        <div class="pipeline-diagram">
+          <div class="pipe-step">
+            <div class="pipe-icon">📝</div>
+            <span class="pipe-label">Git Push</span>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="pipe-step">
+            <div class="pipe-icon">🪝</div>
+            <span class="pipe-label">Webhook Trigger</span>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="pipe-step">
+            <div class="pipe-icon">🏗️</div>
+            <span class="pipe-label">CodeBuild</span>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="pipe-step">
+            <div class="pipe-icon">🐳</div>
+            <span class="pipe-label">Docker Image</span>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="pipe-step">
+            <div class="pipe-icon">📦</div>
+            <span class="pipe-label">Push to ECR</span>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="pipe-step active-step">
+            <div class="pipe-icon">🚀</div>
+            <span class="pipe-label">Deploy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2: Cloud-Native Quiz App -->
+  <div class="project-card" data-animate>
+    <div class="project-card-top">
+      <div class="project-num">02</div>
+      <div class="project-badges">
+        <span class="proj-badge devops">DevOps</span>
+        <span class="proj-badge aws">AWS</span>
+        <span class="proj-badge fullstack">Full Stack</span>
+        <span class="proj-badge cloud">Cloud-Native</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="project-left">
+        <h2 class="project-title">Cloud-Native Quiz Application Deployment</h2>
+        <p class="project-subtitle">AWS CI/CD · Docker · App Runner · CloudFront · S3</p>
+        <p class="project-desc">
+          Designed and deployed a cloud-native quiz app with a fully automated CI/CD pipeline and containerized architecture. Users launch quizzes, answer timed questions fetched from an API, and earn scores displayed on a leaderboard — all served securely through a single custom domain via CloudFront.
+        </p>
+
+        <div class="project-highlights">
+          <div class="ph-item"><span class="ph-icon">🏗️</span> Backend containerized with Docker, built via AWS CodeBuild, pushed to ECR</div>
+          <div class="ph-item"><span class="ph-icon">🏃</span> Backend deployed as stateless service on AWS App Runner (auto-pulls ECR)</div>
+          <div class="ph-item"><span class="ph-icon">🪣</span> Frontend built with CodeBuild, artifacts hosted on Amazon S3</div>
+          <div class="ph-item"><span class="ph-icon">🌐</span> CloudFront CDN routes frontend (S3) and API requests (/api/*) to App Runner</div>
+          <div class="ph-item"><span class="ph-icon">🔒</span> Custom domain with HTTPS configured via CloudFront + DNS policies</div>
+        </div>
+
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-pills">
+            <span class="tech-pill aws-pill">AWS CodeBuild</span>
+            <span class="tech-pill aws-pill">Amazon ECR</span>
+            <span class="tech-pill aws-pill">AWS App Runner</span>
+            <span class="tech-pill aws-pill">Amazon S3</span>
+            <span class="tech-pill aws-pill">CloudFront</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">CI/CD</span>
+            <span class="tech-pill">Custom Domain</span>
+            <span class="tech-pill">HTTPS / DNS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-right">
+        <div class="arch-diagram">
+          <div class="arch-row">
+            <div class="arch-node user-node">👤 User</div>
+          </div>
+          <div class="arch-arrow-down">↓ HTTPS</div>
+          <div class="arch-row">
+            <div class="arch-node cdn-node">🌐 CloudFront CDN</div>
+          </div>
+          <div class="arch-row split-row">
+            <div class="arch-branch">
+              <div class="arch-branch-label">Frontend (/*)</div>
+              <div class="arch-arrow-down">↓</div>
+              <div class="arch-node s3-node">🪣 S3 Static Site</div>
+            </div>
+            <div class="arch-branch">
+              <div class="arch-branch-label">API (/api/*)</div>
+              <div class="arch-arrow-down">↓</div>
+              <div class="arch-node runner-node">🏃 App Runner</div>
+              <div class="arch-arrow-down">↓</div>
+              <div class="arch-node ecr-node">📦 ECR Docker</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3: Cinephile -->
+  <div class="project-card" data-animate>
+    <div class="project-card-top">
+      <div class="project-num">03</div>
+      <div class="project-badges">
+        <span class="proj-badge frontend">Frontend</span>
+        <span class="proj-badge api">API</span>
+        <span class="proj-badge js">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="project-left">
+        <h2 class="project-title">Cinephile</h2>
+        <p class="project-subtitle">Dynamic Movie Details Website — TMDb API</p>
+        <p class="project-desc">
+          A dynamic and interactive movie database website built with HTML, CSS, and JavaScript, powered by real-time data from The Movie Database (TMDb) API. Explore popular, trending, and top-rated movies with rich details, and find exactly what you're looking for with live search.
+        </p>
+
+        <div class="project-highlights">
+          <div class="ph-item"><span class="ph-icon">🎬</span> Browse popular, trending, and top-rated movies in real time</div>
+          <div class="ph-item"><span class="ph-icon">🔍</span> Dynamic search that updates results as you type</div>
+          <div class="ph-item"><span class="ph-icon">📋</span> Detailed movie info — titles, ratings, release dates, overviews</div>
+          <div class="ph-item"><span class="ph-icon">⚡</span> Fully client-side — fast, no backend required</div>
+        </div>
+
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-pills">
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">TMDb API</span>
+            <span class="tech-pill">REST API</span>
+            <span class="tech-pill">Dynamic UI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-right">
+        <div class="cinephile-mockup">
+          <div class="mock-header">
+            <span class="mock-dot red"></span>
+            <span class="mock-dot yellow"></span>
+            <span class="mock-dot green"></span>
+            <span class="mock-url">cinephile.app</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-nav">🎬 Cinephile</div>
+            <div class="mock-search">🔍 Search movies...</div>
+            <div class="mock-cards">
+              <div class="mock-card">
+                <div class="mock-poster">🎥</div>
+                <div class="mock-info">
+                  <div class="mock-title">Movie Title</div>
+                  <div class="mock-rating">⭐ 8.4</div>
+                </div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-poster">🎞️</div>
+                <div class="mock-info">
+                  <div class="mock-title">Movie Title</div>
+                  <div class="mock-rating">⭐ 7.9</div>
+                </div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-poster">🎦</div>
+                <div class="mock-info">
+                  <div class="mock-title">Movie Title</div>
+                  <div class="mock-rating">⭐ 9.1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<script src="scripts/main.js"></script>
+</body>
+</html>

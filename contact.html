@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Femin B J</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <span class="logo-bracket">&lt;</span>FeminBJ<span class="logo-bracket">/&gt;</span>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="skills.html" class="nav-link">Skills</a></li>
+    <li><a href="experience.html" class="nav-link">Experience</a></li>
+    <li><a href="projects.html" class="nav-link">Projects</a></li>
+    <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    <li><a href="resume/Femin_BJ_Resume.pdf" download class="nav-cta">Download CV</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <span class="page-tag">05 / contact</span>
+    <h1>Let's <span class="accent">Connect</span></h1>
+    <p>Open to DevOps roles, collaborations, and conversations.</p>
+  </div>
+</div>
+
+<main class="container contact-main">
+
+  <div class="contact-grid">
+
+    <!-- LEFT: Info -->
+    <div class="contact-info" data-animate>
+      <h2>Reach Out <span class="accent">Anytime</span></h2>
+      <p class="contact-sub">
+        I'm actively looking for <strong>Junior DevOps Engineer</strong> opportunities where I can apply my Azure expertise and production experience. Recruiters, hiring managers — let's talk!
+      </p>
+
+      <div class="contact-cards">
+        <a href="mailto:feminbj3@gmail.com" class="contact-card">
+          <span class="contact-card-icon">📧</span>
+          <div>
+            <span class="cc-label">Email</span>
+            <span class="cc-value">feminbj3@gmail.com</span>
+          </div>
+          <span class="cc-arrow">→</span>
+        </a>
+        <div class="contact-card">
+          <span class="contact-card-icon">📞</span>
+          <div>
+            <span class="cc-label">Phone</span>
+            <span class="cc-value">+91 9789660323</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card-icon">📍</span>
+          <div>
+            <span class="cc-label">Location</span>
+            <span class="cc-value">Trivandrum, Kerala, India</span>
+          </div>
+        </div>
+        <a href="resume/Femin_BJ_Resume.pdf" download class="contact-card highlight-card">
+          <span class="contact-card-icon">📄</span>
+          <div>
+            <span class="cc-label">Resume</span>
+            <span class="cc-value">Download PDF</span>
+          </div>
+          <span class="cc-arrow">↓</span>
+        </a>
+      </div>
+
+      <div class="availability-box">
+        <span class="avail-dot"></span>
+        <span>Currently open to DevOps opportunities — full-time &amp; hybrid roles preferred.</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Netlify Form -->
+    <div class="contact-form-wrap" data-animate>
+      <h2>Send a <span class="accent">Message</span></h2>
+
+      <!-- SUCCESS STATE (hidden by default) -->
+      <div class="form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+        <button class="btn-secondary" onclick="resetForm()">Send Another</button>
+      </div>
+
+      <!--
+        NETLIFY FORMS:
+        - The `data-netlify="true"` attribute tells Netlify to capture this form automatically.
+        - The `name="contact"` attribute is used to identify submissions in your Netlify dashboard.
+        - The hidden `form-name` input is REQUIRED for Netlify to detect the form correctly.
+        - You can view all submissions at: Netlify Dashboard → Your Site → Forms → "contact"
+        - Optionally set up email notifications: Forms → contact → Form notifications → Add notification
+      -->
+      <form
+        id="contactForm"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="contact-form"
+      >
+        <!-- Required hidden input for Netlify -->
+        <input type="hidden" name="form-name" value="contact" />
+
+        <!-- Honeypot spam filter — keep hidden -->
+        <p style="display:none;">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="john@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="DevOps Engineer Opportunity" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Hi Femin, we'd love to discuss a DevOps role at..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary full-btn" id="submitBtn">
+          <span id="btnText">Send Message 🚀</span>
+          <span id="btnLoading" style="display:none;">Sending...</span>
+        </button>
+
+        <p class="form-note">
+          📬 Submissions go directly to my inbox via Netlify Forms — no email client needed.
+        </p>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="scripts/main.js"></script>
+<script>
+  const form = document.getElementById('contactForm');
+  const successBox = document.getElementById('formSuccess');
+  const btnText = document.getElementById('btnText');
+  const btnLoading = document.getElementById('btnLoading');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        successBox.style.display = 'flex';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      // Fallback: open email client
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const subject = formData.get('subject');
+      const message = formData.get('message');
+      window.location.href = `mailto:feminbj3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+    } finally {
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      submitBtn.disabled = false;
+    }
+  });
+
+  function resetForm() {
+    form.reset();
+    form.style.display = 'flex';
+    successBox.style.display = 'none';
+  }
+</script>
+</body>
+</html>
