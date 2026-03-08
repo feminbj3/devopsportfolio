@@ -262,6 +262,115 @@
     </div>
   </div>
 
+  <!-- Project 4: Zenith Productivity -->
+  <div class="project-card zenith-card" data-animate>
+    <div class="project-card-top">
+      <div class="project-num">04</div>
+      <div class="project-badges">
+        <span class="proj-badge fullstack">Full Stack</span>
+        <span class="proj-badge firebase-badge">Firebase</span>
+        <span class="proj-badge react-badge">React</span>
+        <span class="proj-badge vibe-badge">&#10024; Vibe Coded</span>
+        <span class="proj-badge live-badge">&#128994; Live</span>
+      </div>
+    </div>
+
+    <div class="zenith-hero-strip">
+      <div class="zenith-logo-block">
+        <span class="zenith-logo-icon">&#9889;</span>
+        <div>
+          <h2 class="zenith-title">Zenith</h2>
+          <p class="zenith-tagline">Your Personal Productivity OS</p>
+        </div>
+      </div>
+      <div class="zenith-ai-badge">
+        <span>&#129302;</span>
+        <span>Built entirely with AI &mdash; Vibe Coding</span>
+      </div>
+    </div>
+
+    <p class="project-desc zenith-desc">
+      Most productivity apps solve one problem well but force you to juggle five different tools. I tried Notion, Todoist, MyFitnessPal, Habitica, and Google Calendar &mdash; each excellent in isolation, none talking to each other. So I built <strong>Zenith</strong> &mdash; a single, unified productivity operating system covering every dimension of my day. Designed, engineered, and shipped entirely using AI-assisted vibe coding.
+    </p>
+
+    <div class="zenith-stats">
+      <div class="zs-item"><span class="zs-num">7</span><span class="zs-label">Core Modules</span></div>
+      <div class="zs-divider"></div>
+      <div class="zs-item"><span class="zs-num">8</span><span class="zs-label">Firestore Collections</span></div>
+      <div class="zs-divider"></div>
+      <div class="zs-item"><span class="zs-num">100%</span><span class="zs-label">Free to Host</span></div>
+      <div class="zs-divider"></div>
+      <div class="zs-item"><span class="zs-num">$0</span><span class="zs-label">Infra Cost</span></div>
+      <div class="zs-divider"></div>
+      <div class="zs-item"><span class="zs-num">Live</span><span class="zs-label">On Vercel</span></div>
+    </div>
+
+    <div class="zenith-modules">
+      <h4 class="zenith-section-title">7 Integrated Modules</h4>
+      <div class="modules-grid">
+        <div class="module-card">
+          <span class="module-icon">&#9989;</span>
+          <div><strong>Daily Task Manager</strong><p>Priority levels, category tags, completion ring, Today/Tomorrow planner</p></div>
+        </div>
+        <div class="module-card">
+          <span class="module-icon">&#128197;</span>
+          <div><strong>Consistency Calendar</strong><p>Colour-coded heatmap scoring task + habit consistency across the full month</p></div>
+        </div>
+        <div class="module-card">
+          <span class="module-icon">&#127919;</span>
+          <div><strong>Weekly Planning</strong><p>Week-level goals by category, progress bars, focus &amp; reflection notes</p></div>
+        </div>
+        <div class="module-card">
+          <span class="module-icon">&#127942;</span>
+          <div><strong>Long-Term Goal Tracker</strong><p>6-month &amp; yearly plans with slider-based progress per life area</p></div>
+        </div>
+        <div class="module-card">
+          <span class="module-icon">&#128293;</span>
+          <div><strong>Habit Tracker</strong><p>Streaks, 30-day rates, 7-day dot history, real-time Firestore listeners</p></div>
+        </div>
+        <div class="module-card">
+          <span class="module-icon">&#129385;</span>
+          <div><strong>Nutrition Tracker</strong><p>Personalised macro targets, animated calorie ring, meal breakdowns</p></div>
+        </div>
+        <div class="module-card module-card-wide">
+          <span class="module-icon">&#128202;</span>
+          <div><strong>Progress Analytics</strong><p>6 interactive Recharts &mdash; area, bar, radar &mdash; across 7/14/30/60 day windows. Radar chart scores 5 life dimensions at once.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zenith-eng">
+      <h4 class="zenith-section-title">Key Engineering Decisions</h4>
+      <div class="eng-grid">
+        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Client-side date filtering</strong> &mdash; avoids Firestore composite index requirements; all date logic runs in JavaScript</div></div>
+        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Base64 document IDs</strong> &mdash; habit log compound keys (uid+habitId+date) encoded with btoa() to prevent Firestore path corruption</div></div>
+        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Optimistic UI with toggle guards</strong> &mdash; in-flight state per habit+date prevents race conditions on double-tap</div></div>
+        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Zero-cost architecture</strong> &mdash; Firebase Spark + Vercel free tier; $0/month, sustainable indefinitely</div></div>
+      </div>
+    </div>
+
+    <div class="zenith-footer">
+      <div class="project-tech">
+        <h4>Tech Stack</h4>
+        <div class="tech-pills">
+          <span class="tech-pill react-pill">React 18</span>
+          <span class="tech-pill firebase-pill">Firebase Auth</span>
+          <span class="tech-pill firebase-pill">Firestore</span>
+          <span class="tech-pill vercel-pill">Vercel</span>
+          <span class="tech-pill">Recharts</span>
+          <span class="tech-pill">date-fns</span>
+          <span class="tech-pill vibe-pill">&#10024; Vibe Coded</span>
+        </div>
+      </div>
+      <a href="https://zenithproductivity-ten.vercel.app/" target="_blank" rel="noopener" class="zenith-live-btn">
+        <span class="live-dot"></span>
+        View Live App &rarr;
+      </a>
+    </div>
+
+  </div>
+
+
 </main>
 <script src="scripts/main.js"></script>
 </body>
