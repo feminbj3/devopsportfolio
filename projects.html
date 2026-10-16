@@ -1,377 +1,569 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Femin B J</title>
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar" id="navbar">
-  <div class="nav-logo"><span class="logo-bracket">&lt;</span>FeminBJ<span class="logo-bracket">/&gt;</span></div>
-  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="about.html" class="nav-link">About</a></li>
-    <li><a href="skills.html" class="nav-link">Skills</a></li>
-    <li><a href="experience.html" class="nav-link">Experience</a></li>
-    <li><a href="projects.html" class="nav-link active">Projects</a></li>
-    <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-    <li><a href="contact.html" class="nav-link">Contact</a></li>
-    <li><a href="resume/Femin_BJ_Resume.pdf" download class="nav-cta">Download CV</a></li>
-  </ul>
-</nav>
-
-<div class="page-header">
-  <div class="page-header-bg"></div>
-  <div class="page-header-content">
-    <span class="page-tag">03.5 / projects</span>
-    <h1>My <span class="accent">Projects</span></h1>
-    <p>Building real pipelines, deploying real infrastructure, shipping real code.</p>
-  </div>
-</div>
-
-<main class="container projects-main">
-
-  <!-- Project 1: AWS CI/CD Pipeline -->
-  <div class="project-card featured-project" data-animate>
-    <div class="project-card-top">
-      <div class="project-num">01</div>
-      <div class="project-badges">
-        <span class="proj-badge devops">DevOps</span>
-        <span class="proj-badge aws">AWS</span>
-        <span class="proj-badge cicd">CI/CD</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Projects | Femin B J — Platform & DevOps Engineer</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <span class="logo-bracket">&lt;</span>FeminBJ<span class="logo-bracket"
+          >/&gt;</span
+        >
       </div>
-    </div>
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        <li>
+          <a href="certifications.html" class="nav-link">Certifications</a>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li>
+          <button
+            class="cmd-trigger"
+            id="cmdTrigger"
+            title="Command Palette (Ctrl+K)"
+          >
+            ⌘K
+          </button>
+        </li>
+        <li>
+          <a href="resume/Femin_BJ_Resume.pdf" download class="nav-cta"
+            >Download CV</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-    <div class="project-body">
-      <div class="project-left">
-        <h2 class="project-title">AWS CI/CD Pipeline for Node.js Application</h2>
-        <p class="project-subtitle">using CodeBuild and ECR</p>
-        <p class="project-desc">
-          Designed and implemented a fully automated CI/CD pipeline for a Node.js application using AWS-native services. The pipeline is triggered by Git webhook events, automatically builds Docker images, pushes them to Amazon ECR, and deploys the application — zero manual intervention required.
+    <div class="page-header">
+      <div class="page-header-bg"></div>
+      <div class="page-header-content">
+        <span class="page-tag">03.5 / personal projects</span>
+        <h1>Personal <span class="accent">Projects</span></h1>
+        <p>
+          Self-initiated cloud infrastructure, CI/CD pipelines, and full-stack
+          products. (Enterprise client projects are detailed in Experience).
         </p>
-
-        <div class="project-highlights">
-          <div class="ph-item"><span class="ph-icon">⚡</span> Webhook-triggered automated builds on every code push</div>
-          <div class="ph-item"><span class="ph-icon">🐳</span> Docker images built via buildspec.yml and pushed to ECR</div>
-          <div class="ph-item"><span class="ph-icon">🔄</span> End-to-end CI/CD: push → build → containerize → deploy</div>
-          <div class="ph-item"><span class="ph-icon">☁️</span> Fully serverless build infrastructure via AWS CodeBuild</div>
-        </div>
-
-        <div class="project-tech">
-          <h4>Tech Stack</h4>
-          <div class="tech-pills">
-            <span class="tech-pill aws-pill">AWS CodeBuild</span>
-            <span class="tech-pill aws-pill">Amazon ECR</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Git Webhooks</span>
-            <span class="tech-pill">buildspec.yml</span>
-            <span class="tech-pill">CI/CD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-right">
-        <div class="pipeline-diagram">
-          <div class="pipe-step">
-            <div class="pipe-icon">📝</div>
-            <span class="pipe-label">Git Push</span>
-          </div>
-          <div class="pipe-arrow">→</div>
-          <div class="pipe-step">
-            <div class="pipe-icon">🪝</div>
-            <span class="pipe-label">Webhook Trigger</span>
-          </div>
-          <div class="pipe-arrow">→</div>
-          <div class="pipe-step">
-            <div class="pipe-icon">🏗️</div>
-            <span class="pipe-label">CodeBuild</span>
-          </div>
-          <div class="pipe-arrow">→</div>
-          <div class="pipe-step">
-            <div class="pipe-icon">🐳</div>
-            <span class="pipe-label">Docker Image</span>
-          </div>
-          <div class="pipe-arrow">→</div>
-          <div class="pipe-step">
-            <div class="pipe-icon">📦</div>
-            <span class="pipe-label">Push to ECR</span>
-          </div>
-          <div class="pipe-arrow">→</div>
-          <div class="pipe-step active-step">
-            <div class="pipe-icon">🚀</div>
-            <span class="pipe-label">Deploy</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 2: Cloud-Native Quiz App -->
-  <div class="project-card" data-animate>
-    <div class="project-card-top">
-      <div class="project-num">02</div>
-      <div class="project-badges">
-        <span class="proj-badge devops">DevOps</span>
-        <span class="proj-badge aws">AWS</span>
-        <span class="proj-badge fullstack">Full Stack</span>
-        <span class="proj-badge cloud">Cloud-Native</span>
       </div>
     </div>
 
-    <div class="project-body">
-      <div class="project-left">
-        <h2 class="project-title">Cloud-Native Quiz Application Deployment</h2>
-        <p class="project-subtitle">AWS CI/CD · Docker · App Runner · CloudFront · S3</p>
-        <p class="project-desc">
-          Designed and deployed a cloud-native quiz app with a fully automated CI/CD pipeline and containerized architecture. Users launch quizzes, answer timed questions fetched from an API, and earn scores displayed on a leaderboard — all served securely through a single custom domain via CloudFront.
-        </p>
-
-        <div class="project-highlights">
-          <div class="ph-item"><span class="ph-icon">🏗️</span> Backend containerized with Docker, built via AWS CodeBuild, pushed to ECR</div>
-          <div class="ph-item"><span class="ph-icon">🏃</span> Backend deployed as stateless service on AWS App Runner (auto-pulls ECR)</div>
-          <div class="ph-item"><span class="ph-icon">🪣</span> Frontend built with CodeBuild, artifacts hosted on Amazon S3</div>
-          <div class="ph-item"><span class="ph-icon">🌐</span> CloudFront CDN routes frontend (S3) and API requests (/api/*) to App Runner</div>
-          <div class="ph-item"><span class="ph-icon">🔒</span> Custom domain with HTTPS configured via CloudFront + DNS policies</div>
-        </div>
-
-        <div class="project-tech">
-          <h4>Tech Stack</h4>
-          <div class="tech-pills">
-            <span class="tech-pill aws-pill">AWS CodeBuild</span>
-            <span class="tech-pill aws-pill">Amazon ECR</span>
-            <span class="tech-pill aws-pill">AWS App Runner</span>
-            <span class="tech-pill aws-pill">Amazon S3</span>
-            <span class="tech-pill aws-pill">CloudFront</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">CI/CD</span>
-            <span class="tech-pill">Custom Domain</span>
-            <span class="tech-pill">HTTPS / DNS</span>
-          </div>
-        </div>
+    <main class="container projects-main">
+      <!-- Personal Projects Notice & Filter -->
+      <div class="filter-bar" data-animate>
+        <button class="filter-btn active" data-proj-filter="all">
+          All Personal Projects (7)
+        </button>
+        <button class="filter-btn" data-proj-filter="cloud">
+          ☁️ IaC, Cloud &amp; CI/CD
+        </button>
+        <button class="filter-btn" data-proj-filter="fullstack">
+          ⚡ Full-Stack &amp; FinTech Apps
+        </button>
+        <button class="filter-btn" data-proj-filter="hardware">
+          🔧 IoT &amp; Web
+        </button>
       </div>
 
-      <div class="project-right">
-        <div class="arch-diagram">
-          <div class="arch-row">
-            <div class="arch-node user-node">👤 User</div>
+      <!-- Project 1: FinTrack Investment & Wealth Tracker -->
+      <div
+        class="project-card zenith-card"
+        data-proj-cat="fullstack"
+        data-animate
+      >
+        <div class="project-card-top">
+          <div class="project-num">01</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge fullstack">FinTech</span>
+            <span class="proj-badge react-badge">Modern Web</span>
+            <span class="proj-badge vibe-badge">✨ Vibe Coded</span>
+            <span class="proj-badge live-badge">🟢 Live on Vercel</span>
           </div>
-          <div class="arch-arrow-down">↓ HTTPS</div>
-          <div class="arch-row">
-            <div class="arch-node cdn-node">🌐 CloudFront CDN</div>
-          </div>
-          <div class="arch-row split-row">
-            <div class="arch-branch">
-              <div class="arch-branch-label">Frontend (/*)</div>
-              <div class="arch-arrow-down">↓</div>
-              <div class="arch-node s3-node">🪣 S3 Static Site</div>
-            </div>
-            <div class="arch-branch">
-              <div class="arch-branch-label">API (/api/*)</div>
-              <div class="arch-arrow-down">↓</div>
-              <div class="arch-node runner-node">🏃 App Runner</div>
-              <div class="arch-arrow-down">↓</div>
-              <div class="arch-node ecr-node">📦 ECR Docker</div>
+        </div>
+
+        <div class="zenith-hero-strip">
+          <div class="zenith-logo-block">
+            <span class="zenith-logo-icon">📈</span>
+            <div>
+              <h2 class="zenith-title">FinTrack</h2>
+              <p class="zenith-tagline">
+                Personal Investment &amp; Portfolio Analytics Platform
+              </p>
             </div>
           </div>
+          <div class="zenith-ai-badge">
+            <span>💹</span>
+            <span>Live Production App · /investments</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Project 3: Cinephile -->
-  <div class="project-card" data-animate>
-    <div class="project-card-top">
-      <div class="project-num">03</div>
-      <div class="project-badges">
-        <span class="proj-badge frontend">Frontend</span>
-        <span class="proj-badge api">API</span>
-        <span class="proj-badge js">JavaScript</span>
-      </div>
-    </div>
-
-    <div class="project-body">
-      <div class="project-left">
-        <h2 class="project-title">Cinephile</h2>
-        <p class="project-subtitle">Dynamic Movie Details Website — TMDb API</p>
-        <p class="project-desc">
-          A dynamic and interactive movie database website built with HTML, CSS, and JavaScript, powered by real-time data from The Movie Database (TMDb) API. Explore popular, trending, and top-rated movies with rich details, and find exactly what you're looking for with live search.
+        <p class="project-desc zenith-desc">
+          Built and deployed <strong>FinTrack</strong> — a dedicated personal
+          finance and investment portfolio tracker designed to give clear
+          visibility into asset allocation, investment performance, holdings
+          breakdown, and wealth growth over time without spreadsheet clutter.
         </p>
 
         <div class="project-highlights">
-          <div class="ph-item"><span class="ph-icon">🎬</span> Browse popular, trending, and top-rated movies in real time</div>
-          <div class="ph-item"><span class="ph-icon">🔍</span> Dynamic search that updates results as you type</div>
-          <div class="ph-item"><span class="ph-icon">📋</span> Detailed movie info — titles, ratings, release dates, overviews</div>
-          <div class="ph-item"><span class="ph-icon">⚡</span> Fully client-side — fast, no backend required</div>
+          <div class="ph-item">
+            <span class="ph-icon">📊</span> Interactive investment dashboard
+            tracking holdings, returns, and portfolio distribution
+          </div>
+          <div class="ph-item">
+            <span class="ph-icon">💰</span> Real-time net-worth and asset class
+            breakdown across equity, mutual funds, and savings
+          </div>
+          <div class="ph-item">
+            <span class="ph-icon">⚡</span> Responsive, dark-mode financial UI
+            deployed with zero-downtime CI/CD on Vercel
+          </div>
         </div>
 
-        <div class="project-tech">
-          <h4>Tech Stack</h4>
-          <div class="tech-pills">
-            <span class="tech-pill">HTML5</span>
-            <span class="tech-pill">CSS3</span>
-            <span class="tech-pill">JavaScript</span>
-            <span class="tech-pill">TMDb API</span>
-            <span class="tech-pill">REST API</span>
-            <span class="tech-pill">Dynamic UI</span>
+        <div class="zenith-footer">
+          <div class="project-tech">
+            <h4>Tech Stack</h4>
+            <div class="tech-pills">
+              <span class="tech-pill react-pill">React / Next.js</span>
+              <span class="tech-pill vercel-pill">Vercel CI/CD</span>
+              <span class="tech-pill">Financial Analytics</span>
+              <span class="tech-pill">Interactive Charts</span>
+              <span class="tech-pill vibe-pill">✨ Personal Project</span>
+            </div>
           </div>
+          <a
+            href="https://fintrack-rose-six.vercel.app/investments"
+            target="_blank"
+            rel="noopener"
+            class="zenith-live-btn"
+          >
+            <span class="live-dot"></span>
+            Launch FinTrack &rarr;
+          </a>
         </div>
       </div>
 
-      <div class="project-right">
-        <div class="cinephile-mockup">
-          <div class="mock-header">
-            <span class="mock-dot red"></span>
-            <span class="mock-dot yellow"></span>
-            <span class="mock-dot green"></span>
-            <span class="mock-url">cinephile.app</span>
+      <!-- Project 2: Terraform on AWS (IaC) -->
+      <div
+        class="project-card featured-project"
+        data-proj-cat="cloud"
+        data-animate
+      >
+        <div class="project-card-top">
+          <div class="project-num">02</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge devops">Terraform (IaC)</span>
+            <span class="proj-badge aws">AWS</span>
+            <span class="proj-badge cloud">Platform Engineering</span>
           </div>
-          <div class="mock-body">
-            <div class="mock-nav">🎬 Cinephile</div>
-            <div class="mock-search">🔍 Search movies...</div>
-            <div class="mock-cards">
-              <div class="mock-card">
-                <div class="mock-poster">🎥</div>
-                <div class="mock-info">
-                  <div class="mock-title">Movie Title</div>
-                  <div class="mock-rating">⭐ 8.4</div>
-                </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-left">
+            <h2 class="project-title">
+              Automated AWS Infrastructure Provisioning with Terraform
+            </h2>
+            <p class="project-subtitle">
+              Infrastructure as Code · Dynamic AMI Data Sources · Modular
+              Compute
+            </p>
+            <p class="project-desc">
+              Designed and codified reusable Terraform configurations to
+              provision scalable Amazon EC2 compute infrastructure on AWS.
+              Eliminated manual console clicks by leveraging dynamic AMI data
+              lookups, count-based multi-instance scaling, and declarative state
+              management.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item">
+                <span class="ph-icon">🏗️</span> Dynamic
+                <code>aws_ami</code> data source queries to automatically fetch
+                the latest Amazon Linux / Ubuntu images
               </div>
-              <div class="mock-card">
-                <div class="mock-poster">🎞️</div>
-                <div class="mock-info">
-                  <div class="mock-title">Movie Title</div>
-                  <div class="mock-rating">⭐ 7.9</div>
-                </div>
+              <div class="ph-item">
+                <span class="ph-icon">🔢</span> Parameterized
+                <code>count</code> and variable-driven resource configuration
+                for rapid horizontal scaling
               </div>
-              <div class="mock-card">
-                <div class="mock-poster">🎦</div>
-                <div class="mock-info">
-                  <div class="mock-title">Movie Title</div>
-                  <div class="mock-rating">⭐ 9.1</div>
-                </div>
+              <div class="ph-item">
+                <span class="ph-icon">🔒</span> Version-controlled HCL templates
+                ensuring idempotent `terraform plan` and `terraform apply`
+                lifecycles
+              </div>
+            </div>
+
+            <div class="project-tech">
+              <h4>Tech Stack</h4>
+              <div class="tech-pills">
+                <span class="tech-pill">Terraform (HCL)</span>
+                <span class="tech-pill aws-pill">Amazon EC2</span>
+                <span class="tech-pill aws-pill">AWS AMI Data Sources</span>
+                <span class="tech-pill">Infrastructure as Code</span>
+                <span class="tech-pill">Git</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="pipeline-diagram">
+              <div class="pipe-step">
+                <div class="pipe-icon">📄</div>
+                <span class="pipe-label">main.tf &amp; vars.tf</span>
+              </div>
+              <div class="pipe-arrow">↓</div>
+              <div class="pipe-step">
+                <div class="pipe-icon">🔍</div>
+                <span class="pipe-label">AMI Data Lookup</span>
+              </div>
+              <div class="pipe-arrow">↓</div>
+              <div class="pipe-step">
+                <div class="pipe-icon">📋</div>
+                <span class="pipe-label">terraform plan</span>
+              </div>
+              <div class="pipe-arrow">↓</div>
+              <div class="pipe-step active-step">
+                <div class="pipe-icon">☁️</div>
+                <span class="pipe-label">Provision AWS EC2 (count=N)</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Project 4: Zenith Productivity -->
-  <div class="project-card zenith-card" data-animate>
-    <div class="project-card-top">
-      <div class="project-num">04</div>
-      <div class="project-badges">
-        <span class="proj-badge fullstack">Full Stack</span>
-        <span class="proj-badge firebase-badge">Firebase</span>
-        <span class="proj-badge react-badge">React</span>
-        <span class="proj-badge vibe-badge">&#10024; Vibe Coded</span>
-        <span class="proj-badge live-badge">&#128994; Live</span>
+      <!-- Project 3: AWS CI/CD Pipeline -->
+      <div class="project-card" data-proj-cat="cloud" data-animate>
+        <div class="project-card-top">
+          <div class="project-num">03</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge devops">DevOps</span>
+            <span class="proj-badge aws">AWS</span>
+            <span class="proj-badge cicd">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-left">
+            <h2 class="project-title">
+              AWS CI/CD Pipeline for Node.js Application
+            </h2>
+            <p class="project-subtitle">
+              using AWS CodeBuild, Docker, and Amazon ECR
+            </p>
+            <p class="project-desc">
+              Designed and implemented a fully automated CI/CD pipeline for a
+              Node.js application using AWS-native services. Triggered by Git
+              webhook events, the pipeline builds Docker images, pushes them to
+              Amazon ECR, and deploys with zero manual intervention.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item">
+                <span class="ph-icon">⚡</span> Webhook-triggered automated
+                builds on every Git push
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">🐳</span> Docker images built via
+                <code>buildspec.yml</code> and pushed to Amazon ECR
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">🔄</span> End-to-end CI/CD: push → build →
+                containerize → deploy
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">☁️</span> Fully serverless build
+                infrastructure via AWS CodeBuild
+              </div>
+            </div>
+
+            <div class="project-tech">
+              <h4>Tech Stack</h4>
+              <div class="tech-pills">
+                <span class="tech-pill aws-pill">AWS CodeBuild</span>
+                <span class="tech-pill aws-pill">Amazon ECR</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Git Webhooks</span>
+                <span class="tech-pill">buildspec.yml</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="pipeline-diagram">
+              <div class="pipe-step">
+                <div class="pipe-icon">📝</div>
+                <span class="pipe-label">Git Push</span>
+              </div>
+              <div class="pipe-arrow">→</div>
+              <div class="pipe-step">
+                <div class="pipe-icon">🪝</div>
+                <span class="pipe-label">Webhook Trigger</span>
+              </div>
+              <div class="pipe-arrow">→</div>
+              <div class="pipe-step">
+                <div class="pipe-icon">🏗️</div>
+                <span class="pipe-label">CodeBuild</span>
+              </div>
+              <div class="pipe-arrow">→</div>
+              <div class="pipe-step">
+                <div class="pipe-icon">🐳</div>
+                <span class="pipe-label">Docker Image</span>
+              </div>
+              <div class="pipe-arrow">→</div>
+              <div class="pipe-step active-step">
+                <div class="pipe-icon">📦</div>
+                <span class="pipe-label">Push to ECR &amp; Deploy</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="zenith-hero-strip">
-      <div class="zenith-logo-block">
-        <span class="zenith-logo-icon">&#9889;</span>
+      <!-- Project 4: Cloud-Native Quiz App -->
+      <div class="project-card" data-proj-cat="cloud" data-animate>
+        <div class="project-card-top">
+          <div class="project-num">04</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge devops">DevOps</span>
+            <span class="proj-badge aws">AWS</span>
+            <span class="proj-badge cloud">Cloud-Native</span>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-left">
+            <h2 class="project-title">
+              Cloud-Native Quiz Application Deployment
+            </h2>
+            <p class="project-subtitle">
+              AWS CI/CD · Docker · App Runner · CloudFront · S3
+            </p>
+            <p class="project-desc">
+              Architected and deployed a cloud-native quiz platform with a
+              containerized backend on AWS App Runner and static frontend on S3,
+              unified behind a single custom HTTPS domain via CloudFront
+              path-based routing.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item">
+                <span class="ph-icon">🏗️</span> Backend containerized with
+                Docker, built via AWS CodeBuild, pushed to ECR
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">🏃</span> Backend deployed as a stateless
+                service on AWS App Runner
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">🌐</span> CloudFront CDN routes frontend
+                (<code>/*</code> → S3) and API requests (<code>/api/*</code> →
+                App Runner)
+              </div>
+              <div class="ph-item">
+                <span class="ph-icon">🔒</span> Custom domain with HTTPS
+                configured via CloudFront + DNS policies
+              </div>
+            </div>
+
+            <div class="project-tech">
+              <h4>Tech Stack</h4>
+              <div class="tech-pills">
+                <span class="tech-pill aws-pill">AWS CodeBuild</span>
+                <span class="tech-pill aws-pill">Amazon ECR</span>
+                <span class="tech-pill aws-pill">AWS App Runner</span>
+                <span class="tech-pill aws-pill">Amazon S3</span>
+                <span class="tech-pill aws-pill">CloudFront</span>
+                <span class="tech-pill">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="arch-diagram">
+              <div class="arch-row">
+                <div class="arch-node user-node">👤 User (HTTPS)</div>
+              </div>
+              <div class="arch-arrow-down">↓</div>
+              <div class="arch-row">
+                <div class="arch-node cdn-node">🌐 CloudFront CDN</div>
+              </div>
+              <div class="arch-row split-row">
+                <div class="arch-branch">
+                  <div class="arch-branch-label">Frontend (/*)</div>
+                  <div class="arch-arrow-down">↓</div>
+                  <div class="arch-node s3-node">🪣 S3 Static Site</div>
+                </div>
+                <div class="arch-branch">
+                  <div class="arch-branch-label">API (/api/*)</div>
+                  <div class="arch-arrow-down">↓</div>
+                  <div class="arch-node runner-node">🏃 App Runner</div>
+                  <div class="arch-arrow-down">↓</div>
+                  <div class="arch-node ecr-node">📦 ECR Docker</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Zenith Productivity -->
+      <div
+        class="project-card zenith-card"
+        data-proj-cat="fullstack"
+        data-animate
+      >
+        <div class="project-card-top">
+          <div class="project-num">05</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge fullstack">Full Stack</span>
+            <span class="proj-badge firebase-badge">Firebase</span>
+            <span class="proj-badge react-badge">React 18</span>
+            <span class="proj-badge live-badge">🟢 Live on Vercel</span>
+          </div>
+        </div>
+
+        <div class="zenith-hero-strip">
+          <div class="zenith-logo-block">
+            <span class="zenith-logo-icon">&#9889;</span>
+            <div>
+              <h2 class="zenith-title">Zenith</h2>
+              <p class="zenith-tagline">Your Personal Productivity OS</p>
+            </div>
+          </div>
+          <div class="zenith-ai-badge">
+            <span>&#129302;</span>
+            <span>7 Modules · 8 Firestore Collections</span>
+          </div>
+        </div>
+
+        <p class="project-desc zenith-desc">
+          A unified personal productivity operating system combining daily
+          tasks, consistency heatmaps, weekly planning, long-term goals, habit
+          streaks, nutrition tracking, and 6 interactive Recharts analytics
+          dashboards on a zero-cost Firebase + Vercel architecture.
+        </p>
+
+        <div class="zenith-footer">
+          <div class="project-tech">
+            <h4>Tech Stack</h4>
+            <div class="tech-pills">
+              <span class="tech-pill react-pill">React 18</span>
+              <span class="tech-pill firebase-pill"
+                >Firebase Auth &amp; Firestore</span
+              >
+              <span class="tech-pill vercel-pill">Vercel</span>
+              <span class="tech-pill">Recharts</span>
+              <span class="tech-pill vibe-pill">✨ Vibe Coded</span>
+            </div>
+          </div>
+          <a
+            href="https://zenithproductivity-ten.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="zenith-live-btn"
+          >
+            <span class="live-dot"></span>
+            View Live App &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6: Cinephile -->
+      <div class="project-card" data-proj-cat="hardware" data-animate>
+        <div class="project-card-top">
+          <div class="project-num">06</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge">👤 Personal Project</span>
+            <span class="proj-badge frontend">Frontend</span>
+            <span class="proj-badge api">TMDb API</span>
+            <span class="proj-badge js">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-left">
+            <h2 class="project-title">Cinephile</h2>
+            <p class="project-subtitle">
+              Dynamic Movie Discovery Platform — TMDb REST API
+            </p>
+            <p class="project-desc">
+              Interactive movie database application built with HTML5, CSS3, and
+              vanilla JavaScript powered by real-time data from The Movie
+              Database (TMDb) API with live debounced search.
+            </p>
+            <div class="project-tech">
+              <h4>Tech Stack</h4>
+              <div class="tech-pills">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">TMDb REST API</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-right">
+            <div class="cinephile-mockup">
+              <div class="mock-header">
+                <span class="mock-dot red"></span>
+                <span class="mock-dot yellow"></span>
+                <span class="mock-dot green"></span>
+                <span class="mock-url">cinephile.app</span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-nav">🎬 Cinephile</div>
+                <div class="mock-search">🔍 Search trending movies...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7: Drivemo -->
+      <div class="project-card" data-proj-cat="hardware" data-animate>
+        <div class="project-card-top">
+          <div class="project-num">07</div>
+          <div class="project-badges">
+            <span class="proj-badge personal-badge"
+              >👤 Personal / Capstone Project</span
+            >
+            <span class="proj-badge cicd"
+              >🥇 Best Project Award (1st / 23 Teams)</span
+            >
+          </div>
+        </div>
         <div>
-          <h2 class="zenith-title">Zenith</h2>
-          <p class="zenith-tagline">Your Personal Productivity OS</p>
+          <h2 class="project-title">
+            Drivemo — Emergency Indicator &amp; Notification System
+          </h2>
+          <p class="project-subtitle">
+            Embedded Systems &amp; Automated Alerting
+          </p>
+          <p class="project-desc">
+            Designed and prototyped an automated emergency indicator and alert
+            notification system for vehicles. Selected as the
+            <strong>Best Project among 23 engineering teams</strong> at
+            Loyola-ICAM College of Engineering &amp; Technology.
+          </p>
         </div>
       </div>
-      <div class="zenith-ai-badge">
-        <span>&#129302;</span>
-        <span>Built entirely with AI &mdash; Vibe Coding</span>
-      </div>
-    </div>
-
-    <p class="project-desc zenith-desc">
-      Most productivity apps solve one problem well but force you to juggle five different tools. I tried Notion, Todoist, MyFitnessPal, Habitica, and Google Calendar &mdash; each excellent in isolation, none talking to each other. So I built <strong>Zenith</strong> &mdash; a single, unified productivity operating system covering every dimension of my day. Designed, engineered, and shipped entirely using AI-assisted vibe coding.
-    </p>
-
-    <div class="zenith-stats">
-      <div class="zs-item"><span class="zs-num">7</span><span class="zs-label">Core Modules</span></div>
-      <div class="zs-divider"></div>
-      <div class="zs-item"><span class="zs-num">8</span><span class="zs-label">Firestore Collections</span></div>
-      <div class="zs-divider"></div>
-      <div class="zs-item"><span class="zs-num">100%</span><span class="zs-label">Free to Host</span></div>
-      <div class="zs-divider"></div>
-      <div class="zs-item"><span class="zs-num">$0</span><span class="zs-label">Infra Cost</span></div>
-      <div class="zs-divider"></div>
-      <div class="zs-item"><span class="zs-num">Live</span><span class="zs-label">On Vercel</span></div>
-    </div>
-
-    <div class="zenith-modules">
-      <h4 class="zenith-section-title">7 Integrated Modules</h4>
-      <div class="modules-grid">
-        <div class="module-card">
-          <span class="module-icon">&#9989;</span>
-          <div><strong>Daily Task Manager</strong><p>Priority levels, category tags, completion ring, Today/Tomorrow planner</p></div>
-        </div>
-        <div class="module-card">
-          <span class="module-icon">&#128197;</span>
-          <div><strong>Consistency Calendar</strong><p>Colour-coded heatmap scoring task + habit consistency across the full month</p></div>
-        </div>
-        <div class="module-card">
-          <span class="module-icon">&#127919;</span>
-          <div><strong>Weekly Planning</strong><p>Week-level goals by category, progress bars, focus &amp; reflection notes</p></div>
-        </div>
-        <div class="module-card">
-          <span class="module-icon">&#127942;</span>
-          <div><strong>Long-Term Goal Tracker</strong><p>6-month &amp; yearly plans with slider-based progress per life area</p></div>
-        </div>
-        <div class="module-card">
-          <span class="module-icon">&#128293;</span>
-          <div><strong>Habit Tracker</strong><p>Streaks, 30-day rates, 7-day dot history, real-time Firestore listeners</p></div>
-        </div>
-        <div class="module-card">
-          <span class="module-icon">&#129385;</span>
-          <div><strong>Nutrition Tracker</strong><p>Personalised macro targets, animated calorie ring, meal breakdowns</p></div>
-        </div>
-        <div class="module-card module-card-wide">
-          <span class="module-icon">&#128202;</span>
-          <div><strong>Progress Analytics</strong><p>6 interactive Recharts &mdash; area, bar, radar &mdash; across 7/14/30/60 day windows. Radar chart scores 5 life dimensions at once.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="zenith-eng">
-      <h4 class="zenith-section-title">Key Engineering Decisions</h4>
-      <div class="eng-grid">
-        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Client-side date filtering</strong> &mdash; avoids Firestore composite index requirements; all date logic runs in JavaScript</div></div>
-        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Base64 document IDs</strong> &mdash; habit log compound keys (uid+habitId+date) encoded with btoa() to prevent Firestore path corruption</div></div>
-        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Optimistic UI with toggle guards</strong> &mdash; in-flight state per habit+date prevents race conditions on double-tap</div></div>
-        <div class="eng-item"><span class="eng-bullet">&rarr;</span><div><strong>Zero-cost architecture</strong> &mdash; Firebase Spark + Vercel free tier; $0/month, sustainable indefinitely</div></div>
-      </div>
-    </div>
-
-    <div class="zenith-footer">
-      <div class="project-tech">
-        <h4>Tech Stack</h4>
-        <div class="tech-pills">
-          <span class="tech-pill react-pill">React 18</span>
-          <span class="tech-pill firebase-pill">Firebase Auth</span>
-          <span class="tech-pill firebase-pill">Firestore</span>
-          <span class="tech-pill vercel-pill">Vercel</span>
-          <span class="tech-pill">Recharts</span>
-          <span class="tech-pill">date-fns</span>
-          <span class="tech-pill vibe-pill">&#10024; Vibe Coded</span>
-        </div>
-      </div>
-      <a href="https://zenithproductivity-ten.vercel.app/" target="_blank" rel="noopener" class="zenith-live-btn">
-        <span class="live-dot"></span>
-        View Live App &rarr;
-      </a>
-    </div>
-
-  </div>
-
-
-</main>
-<script src="scripts/main.js"></script>
-</body>
+    </main>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

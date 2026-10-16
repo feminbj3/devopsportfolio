@@ -13,7 +13,6 @@ if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
-  // Close on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => navLinks.classList.remove('open'));
   });
@@ -25,7 +24,7 @@ if (canvas) {
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  const chars = 'AZUREDEVOPSCI/CDDOCKERGITHUBLINUX0123456789>_{}[]';
+  const chars = 'GCPAZURETERRAFORMDEVOPSCI/CDDOCKERK8SLINUXPYTHON0123456789>_{}[]';
   const cols = Math.floor(canvas.width / 18);
   const drops = Array(cols).fill(1);
   function drawMatrix() {
@@ -49,12 +48,12 @@ if (canvas) {
 
 // ── TYPED TITLE EFFECT ──
 const titles = [
-  'Jr. DevOps Engineer',
-  'Azure Cloud Specialist',
-  'Production Support Engineer',
-  'CI/CD Enthusiast',
-  'Python Automation Builder',
-  'AZ-900 | AZ-104 | AI-102'
+  'Platform Engineer',
+  'DevOps Engineer',
+  'Multi-Cloud Specialist (GCP · Azure · AWS)',
+  'Terraform IaC Automation Builder',
+  'Gemini Enterprise Agent Developer',
+  'Future GCP Professional Cloud Architect'
 ];
 let titleIndex = 0, charIndex = 0, isDeleting = false;
 const typedEl = document.getElementById('typedTitle');
@@ -74,7 +73,7 @@ if (typedEl) {
       isDeleting = false;
       titleIndex = (titleIndex + 1) % titles.length;
     }
-    setTimeout(typeEffect, isDeleting ? 50 : 80);
+    setTimeout(typeEffect, isDeleting ? 40 : 75);
   }
   typeEffect();
 }
@@ -85,7 +84,7 @@ if (animateEls.length) {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        setTimeout(() => entry.target.classList.add('visible'), i * 90);
         obs.unobserve(entry.target);
       }
     });
@@ -107,3 +106,98 @@ if (skillFills.length) {
   }, { threshold: 0.2 });
   skillFills.forEach(el => obs.observe(el));
 }
+
+// ── SKILLS FILTER ──
+const skillFilterBtns = document.querySelectorAll('[data-filter]');
+const skillSections = document.querySelectorAll('.skill-section[data-category]');
+if (skillFilterBtns.length && skillSections.length) {
+  skillFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      skillSections.forEach(sec => {
+        sec.style.display = (filter === 'all' || sec.getAttribute('data-category') === filter) ? 'block' : 'none';
+      });
+    });
+  });
+}
+
+// ── PROJECTS FILTER ──
+const projFilterBtns = document.querySelectorAll('[data-proj-filter]');
+const projCards = document.querySelectorAll('.project-card[data-proj-cat]');
+if (projFilterBtns.length && projCards.length) {
+  projFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-proj-filter');
+      projCards.forEach(card => {
+        card.style.display = (filter === 'all' || card.getAttribute('data-proj-cat') === filter) ? 'block' : 'none';
+      });
+    });
+  });
+}
+
+// ── INTERACTIVE COMMAND PALETTE (Ctrl+K / Cmd+K) ──
+(function initCommandPalette() {
+  const modal = document.createElement('div');
+  modal.className = 'cmd-overlay';
+  modal.id = 'cmdOverlay';
+  modal.innerHTML = `
+    <div class="cmd-modal">
+      <div class="cmd-header">
+        <span>⌘</span>
+        <input type="text" id="cmdInput" placeholder="Type a command or search pages (Esc to close)..." autocomplete="off" />
+      </div>
+      <div class="cmd-list" id="cmdList">
+        <a href="index.html" class="cmd-item"><span>🏠 Go to Home</span><kbd>Page</kbd></a>
+        <a href="about.html" class="cmd-item"><span>👤 About &amp; Terminal Profile</span><kbd>Page</kbd></a>
+        <a href="skills.html" class="cmd-item"><span>🛠️ Platform &amp; DevOps Tech Stack</span><kbd>Page</kbd></a>
+        <a href="experience.html" class="cmd-item"><span>🏢 Experience (Quantiphi &amp; TCS)</span><kbd>Page</kbd></a>
+        <a href="projects.html" class="cmd-item"><span>🚀 Personal Projects (FinTrack, Terraform, Zenith)</span><kbd>Page</kbd></a>
+        <a href="certifications.html" class="cmd-item"><span>🎓 Certifications &amp; GCP Architect Roadmap</span><kbd>Page</kbd></a>
+        <a href="contact.html" class="cmd-item"><span>📬 Contact Me</span><kbd>Page</kbd></a>
+        <a href="resume/Femin_BJ_Resume.pdf" download class="cmd-item"><span>📄 Download Resume PDF</span><kbd>Action</kbd></a>
+        <a href="https://fintrack-rose-six.vercel.app/investments" target="_blank" rel="noopener" class="cmd-item"><span>📈 Open FinTrack Live App</span><kbd>External</kbd></a>
+        <a href="https://zenithproductivity-ten.vercel.app/" target="_blank" rel="noopener" class="cmd-item"><span>⚡ Open Zenith Productivity OS</span><kbd>External</kbd></a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const trigger = document.getElementById('cmdTrigger');
+  const input = document.getElementById('cmdInput');
+  const items = modal.querySelectorAll('.cmd-item');
+
+  function toggleCmd(show) {
+    modal.classList.toggle('open', show);
+    if (show) {
+      input.value = '';
+      items.forEach(i => i.style.display = 'flex');
+      setTimeout(() => input.focus(), 50);
+    }
+  }
+
+  if (trigger) trigger.addEventListener('click', () => toggleCmd(true));
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      toggleCmd(!modal.classList.contains('open'));
+    } else if (e.key === 'Escape' && modal.classList.contains('open')) {
+      toggleCmd(false);
+    }
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) toggleCmd(false);
+  });
+
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    items.forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+    });
+  });
+})();
